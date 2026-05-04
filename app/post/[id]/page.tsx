@@ -1,4 +1,4 @@
-import { getPostById } from '@/lib/api';
+import { getPostById, generatePostIds } from '@/lib/posts';
 import NotFound from '@/app/post/[id]/not-found';
 import { CommentsSection } from '@/app/components/comments-section';
 
@@ -23,4 +23,9 @@ export default async function PostPage({ params }: { params: Promise<{ id: strin
             </div>
         </div>
     );
+}
+
+export async function generateStaticParams() {
+    const ids = await generatePostIds();
+    return ids.map((id) => ({ id }));
 }

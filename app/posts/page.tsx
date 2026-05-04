@@ -1,4 +1,4 @@
-import { getAllPosts } from '@/lib/api';
+import { getAllPosts } from '@/lib/posts';
 import Link from 'next/link';
 
 export default async function PostsPage() {
