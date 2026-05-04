@@ -1,0 +1,15 @@
+[{
+  "id": "0001",
+  "postId": "0001",
+  "name": "first one",
+  "email": "first.one@gmailcom",
+  "text": "good post",
+  "createdAt": "Wed Apr 29 2026 17:33:06 GMT+0300"
+}, {
+  "id": "0002",
+  "postId": "0001",
+  "name": "second one",
+  "email": "second.one@gmailcom",
+  "text": "gLorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas accumsan felis justo, quis congue tellus tristique vitae. Ut pretium, justo in bibendum lobortis, quam turpis tincidunt eros, vel molestie sem diam non est. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Sed ultricies bibendum vehicula. Fusce ligula lectus, vehicula quis ultricies quis, vulputate et magna. Ut a dolor vehicula, egestas sem in, auctor massa. Suspendisse volutpat eros quam, sit amet rhoncus est luctus at. Aliquam malesuada non tellus quis mattis.\n\nPhasellus porta auctor nisi in sagittis. Donec placerat arcu justo, vel pretium nisi sodales vel. Aliquam ipsum sem, maximus ut pharetra eu, semper vel lorem. Curabitur enim est, euismod sit amet leo a, ullamcorper pellentesque sem. Proin at feugiat libero. Pellentesque varius ante sit amet quam dignissim consectetur. Suspendisse pulvinar quis libero ut pellentesque. Cras lacus elit, volutpat aliquam cursus a, condimentum molestie magna. Curabitur faucibus est id mauris sagittis suscipit. Sed ullamcorper tempus ornare. Nulla et libero leo. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;",
+  "createdAt": "Wed Apr 30 2026 17:33:06 GMT+0300"
+}]
