@@ -6,6 +6,10 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const comments = getCommentsByPostId(id);
-  return NextResponse.json(comments);
+  try {
+    const comments = await getCommentsByPostId(id);
+    return NextResponse.json(comments);
+  } catch {
+    return NextResponse.json([], { status: 200 });
+  }
 }

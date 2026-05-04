@@ -6,7 +6,10 @@ interface CommentsSectionProps {
 }
 
 export async function CommentsSection({ postId }: CommentsSectionProps) {
-  const comments = await getCommentsByPostId(postId);
-
-  return <CommentsClient initialComments={comments} />;
+  try {
+    const comments = await getCommentsByPostId(postId);
+    return <CommentsClient initialComments={comments} />;
+  } catch {
+    return <CommentsClient initialComments={[]} />;
+  }
 }

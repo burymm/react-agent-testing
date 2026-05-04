@@ -21,30 +21,22 @@ function mapPost(p: JsonPlaceholderPost): Post {
     };
 }
 
-async function fetchAllPosts(): Promise<JsonPlaceholderPost[]> {
-    const res = await fetch('https://jsonplaceholder.typicode.com/posts', { next: { revalidate: 3600 } });
-    if (!res.ok) throw new Error(`Failed to fetch posts: ${res.status}`);
-    return res.json();
-}
-
-async function fetchSinglePost(id: number): Promise<JsonPlaceholderPost | null> {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, { next: { revalidate: 3600 } });
-    if (res.status === 404) return null;
-    if (!res.ok) throw new Error(`Failed to fetch post ${id}: ${res.status}`);
-    return res.json();
-}
+const allPostsPromise = fetch('https://jsonplaceholder.typicode.com/posts', {
+    next: { revalidate: 3600 },
+}).then((r) => r.json() as Promise<JsonPlaceholderPost[]>);
 
 export async function getAllPosts(): Promise<Post[]> {
-    const data = await fetchAllPosts();
+    const data = await allPostsPromise;
     return data.map(mapPost);
 }
 
 export async function getPostById(id: string): Promise<Post | null> {
-    const data = await fetchSinglePost(Number(id));
-    return data ? mapPost(data) : null;
+    const data = await allPostsPromise;
+    const found = data.find((p) => String(p.id) === id);
+    return found ? mapPost(found) : null;
 }
 
 export async function generatePostIds(): Promise<string[]> {
-    const data = await fetchAllPosts();
+    const data = await allPostsPromise;
     return data.map((p) => String(p.id));
 }
